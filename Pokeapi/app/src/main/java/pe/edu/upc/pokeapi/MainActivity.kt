@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
             ) {
 
                 if (response.isSuccessful) {
-                    pokemons = response!!.body()!!.results
+                    pokemons = response.body()!!.results
                     adapter = PokemonAdapter(pokemons)
                     rvPokemon.adapter = adapter
                 }
