@@ -29,14 +29,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun getpokemons() {
 
-        var retrofit = Retrofit.Builder()
+        val retrofit = Retrofit.Builder()
             .baseUrl("https://pokeapi.co/api/v2/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        var pokemonInterface = retrofit.create(PokemonInterface::class.java)
+        val pokemonInterface = retrofit.create(PokemonInterface::class.java)
 
-        var methodPokemonsData: Call<PokedexResponse> = pokemonInterface.getPokemonsData()
+        val methodPokemonsData: Call<PokedexResponse> = pokemonInterface.getPokemonsData()
 
         methodPokemonsData.enqueue(object : Callback<PokedexResponse> {
             override fun onFailure(call: Call<PokedexResponse>, t: Throwable) {
